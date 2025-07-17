@@ -7,6 +7,9 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
+    env_file:
+      - .env
+      
     # Si querés usar GPU, agregá:
     # deploy:
     #   resources:
