@@ -9,7 +9,10 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-      
+
+    networks:
+      - ai_shared_services
+
     # Si querés usar GPU, agregá:
     # deploy:
     #   resources:
@@ -21,3 +24,7 @@ services:
 
 volumes:
   ollama_data:
+
+networks:
+  ai_shared_services:
+    external: true
