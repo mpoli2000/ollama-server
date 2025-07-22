@@ -7,9 +7,10 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
+    mem_limit: 10g        # Limita el uso a 10 GB (protege al sistema)
+    mem_reservation: 6g   # Sugerencia mínima para que no se “ahogue”    
     env_file:
       - .env
-
     networks:
       - ai_shared_services
 
